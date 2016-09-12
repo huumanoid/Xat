@@ -123,18 +123,18 @@ if (isset($_POST["submit"])) {
 			With Xat json, we'll get only both descriptions of the power since everything is on the api already. :)
 		*/
 		
-		$id		= $json->ID;
+		$id	= $json->ID;
 		$xat 	= json_decode(file_get_contents("http://xat.com/json/powers.php"), true);
-		$d1		= isset($xat[$id]["d1"]) ? $xat[$id]["d1"] : false;
-		$d2		= isset($xat[$id]["d2"]) ? $xat[$id]["d2"] : false;
+		$d1	= isset($xat[$id]["d1"]) ? $xat[$id]["d1"] : false;
+		$d2	= isset($xat[$id]["d2"]) ? $xat[$id]["d2"] : false;
 		
 		/*
 			Let's fetch other infos now!!
 		*/
 		
-		$nm		= $json->Power;
-		$sm		= str_replace(",", ",", $json->Smileys);
-		$st		= str_replace(array(",", " xats", " days"), array("", "", ""), $json->XatStore);
+		$nm	= $json->Power;
+		$sm	= str_replace(",", ",", $json->Smileys);
+		$st	= str_replace(array(",", " xats", " days"), array("", "", ""), $json->XatStore);
 		$sub 	= pow(2, ($id % 32));
 		$sec	= $id >> 5;
 		
@@ -157,8 +157,7 @@ if (isset($_POST["submit"])) {
 			
 			$qr = $dbh->prepare("INSERT into test2 (id, name, section, subid, cost, description, topsh, d1) VALUES(:id, :name, :section, :subid, :cost, :description, :topsh, :d1)");
 			$qr->execute(array("id" => $id, "name" => $nm, "section" => "p".$sec, "subid" => $sub, "cost" => $st, "description" => $d2, "topsh" => $sm, "d1" => $d1));
-			
-			$message	= "Added";
+			$message = "Added";
 		}
 	}
 }
