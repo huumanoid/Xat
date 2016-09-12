@@ -12,10 +12,10 @@
 	$json = json_decode(file_get_contents('http://xat.com/web_gear/chat/gift2.php?Sloom='.time()));
 	for($i= 0; $i < sizeof($json); $i++) {
 	  if($i == 3) continue; // why do we need to save category name xD ?
-		$explode = explode(',', $json[$i][1]); // first part of the json
-		$explodes = explode(',', $json[$i][2]); // second part of the second
+	  $explode = explode(',', $json[$i][1]); // first part of the json
+	  $explodes = explode(',', $json[$i][2]); // second part of the second
 		
-		if (in_array($explode[0], array("card, "gift")) || in_array($explodes[0], array("card, "gift")) || is_numeric($explode[1]) || is_numeric($explodes[1])) {
+		if (in_array($explode[0], array("card", "gift")) || in_array($explodes[0], array("card", "gift")) || is_numeric($explode[1]) || is_numeric($explodes[1])) {
 			unset($explode[0]); // removed from array so we can prevent against saving "gift/card" and "50/100".
 			unset($explode[1]); // removed from array
 		}
