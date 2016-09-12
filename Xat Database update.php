@@ -45,7 +45,7 @@ if (isset($_POST["submit3"])) {
 			We will create a folder by default!
 		*/
 		
-		if(!is_dir("sm2")){
+		if (!is_dir("sm2")) {
 			mkdir("sm2");
 		}
 		
