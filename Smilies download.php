@@ -18,22 +18,27 @@ function downloadSm($sm) { // download all smilies
 	$smiley = $sm;
 	
 	$smiley	= explode(",", $smiley);
+	
+	if (sizeof($smiley) == 0) {
+		print 'Nothing to download.';
+	} else {
 
-	for ($i = 0; $i < sizeof($smiley); $i++) {
-		
-		$url = @file_get_contents("http://xat.com/images/sm2/{$smiley[$i]}.swf");
-		
-		if ($url) {
-			if (!file_exists("sm2/".$smiley[$i].".swf")) {
-				file_put_contents("sm2/".$smiley[$i].".swf", $url);
-				print 'Downloading ('.$smiley[$i].')'.PHP_EOL;
+		for ($i = 0; $i < sizeof($smiley); $i++) {
+			
+			$url = @file_get_contents("http://xat.com/images/sm2/{$smiley[$i]}.swf");
+			
+			if ($url) {
+				if (!file_exists("sm2/".$smiley[$i].".swf")) {
+					file_put_contents("sm2/".$smiley[$i].".swf", $url);
+					print 'Downloading ('.$smiley[$i].')'.PHP_EOL;
+				} else {
+					print $smiley[$i].' is already downloaded.'.PHP_EOL;
+				}
 			} else {
-				print $smiley[$i].' is already downloaded.'.PHP_EOL;
+				print 'Failed to download '.$smiley[$i].PHP_EOL;
 			}
-		} else {
-			print 'Failed to download '.$smiley[$i].PHP_EOL;
+			
 		}
-		
 	}
 	
 }
