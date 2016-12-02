@@ -1,0 +1,33 @@
+/*
+    SMILIE GENERATEUR - Javascript
+    Auteur : SlOom/Clément
+*/
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>Smilie</title>
+        <meta charset="UTF-8" />
+    </head>
+    <body>
+        <div style="text-align:center;">
+            <div id="results"></div>
+            <input type="text" id="smilies" value="" />
+            <input type="button" id="button" value="Show the smilie!" />
+            <script>
+                var smilie  = document.getElementById("smilies");
+                var button  = document.getElementById("button");
+                button.addEventListener("click", function(event) {
+                    var smilies = smilie.value.replace(/[^\w\s]/gi, '');
+
+                    if (smilies.length !== 0) {
+                        var message  = "<h1> Vous avez demande le smiley " + smilies + " : </h1>";
+                        message     += '<embed src="//xat.com/web_gear/flash/smiliesshow.swf" flashvars="r=' + smilies + '" wmode="transparent" />';
+                        document.getElementById("results").innerHTML = message;
+                    } else {
+                        document.getElementById("results").innerHTML = "<h1>Merci de spécifier un smiley. ^_^</h1>";
+                    }
+                });
+            </script>
+        </div>
+    </body>
+</html>
