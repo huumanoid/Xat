@@ -2,7 +2,7 @@
 
 I made this tool in NODEJS for fun. 
 
-This tool will get all messages where it says the word you have chosen. For example, I want to search for "sloom", it will fetch all messages with "sloom".
+This tool will get all messages where it says the word you have chosen from http://xat.com/web_gear/chat/search.php. For example, I want to search for "sloom", it will fetch all messages with "sloom".
 
 <h1>Requirement</h1>
 <ul>
