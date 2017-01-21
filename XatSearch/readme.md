@@ -1,6 +1,6 @@
 <h1>XatSearch</h1>
 
-<em>This tool will get all messages where it says the word you have chosen from http://xat.com/web_gear/chat/search.php. </em>
+This tool will get all messages where it says the word you have chosen from http://xat.com/web_gear/chat/search.php. <br />
 For example, I want to search for "sloom", it will fetch all messages with "sloom".
 
 <h1>Requirement</h1>
