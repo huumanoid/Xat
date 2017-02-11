@@ -31,5 +31,5 @@ if argu != ""
 	end	
 	Thread.current["from"].print packet("m",{"t" => check, "u" => 0})
 else
-	Thread.current["from"].print packet("m",{"t" => "Usage: @old [smiley name]", "u" => 0})
+	Thread.current["from"].print packet("m",{"t" => "Usage: @old [SMILEY name]", "u" => 0})
 end
