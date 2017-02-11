@@ -6,7 +6,8 @@ I will use this folder to release some commands I have done on Cyborg client. If
 
 <p>I'm NOT the ower of the client "Decoy Cyborg", i'm only posting some commands that users can use on their side. <br />
 I'm NOT helping if you need help. If you need help, just visit <a href="http://shadow19.xyz/cyborg/">Cyborg's website</a> <br /> <br />
-All commands are in ruby and some of them may be badly coded so don't blame me but my fingers! </p>
+All commands are in ruby and some of them may be badly coded so don't blame me but my fingers! <br />
+All commands are under my name, so don't try to take credits on it.</p>
 
 <h1>Credits</h1>
 <p>If you are a good boy, you are mainly forced to give credits to people, so here we go:</p>
