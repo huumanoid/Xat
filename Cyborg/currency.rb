@@ -2,7 +2,6 @@ def is_number? string
   true if Float(string) rescue false
 end
 
-
 if argu != ""	
 	money 	= args[0]
 	cur1	= args[1]
