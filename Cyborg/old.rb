@@ -26,7 +26,7 @@ if argu != ""
 			check 	= smexist(smname) ? "[#{smname}'s smiley] Old: (#{smname}#wc) | New: (#{smname})" : "This smilie has not been changed."
 		end
 	else 
-		sm		= argu.gsub(/[^a-zA-Z0-9\-]/,"") 
+		sm	= argu.gsub(/[^a-zA-Z0-9\-]/,"") 
 		check	= smexist(smiley) ? "[#{sm}'s smiley] Old: (#{sm}#wc) | New: (#{sm})" : "This smilie has not been changed."
 	end	
 	Thread.current["from"].print packet("m",{"t" => check, "u" => 0})
