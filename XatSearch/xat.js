@@ -1,6 +1,6 @@
 var request     = require('request');
 var cheerio     = require('cheerio');
-var check       = [];
+var hasResults = false;
 
 function init(search) {
     console.log("Please wait until we have fetched everything...");
@@ -9,7 +9,7 @@ function init(search) {
         method: 'POST',
         form: {'search': search}
     }, function(error, response, body){
-        if(error) {
+        if (error) {
             console.log("Failed to get informations from this website!");
         } else {
             var $       = cheerio.load(body);
@@ -17,21 +17,32 @@ function init(search) {
                 var classN      = $(this).attr('class');
                 if (classN == "name") {
                     var message = $('a', this).text();
-                    var name    = $('font', this).text().replace("[", "").replace("]", "");
+                    var name = $('font', this).text().replace("[", "").replace("]", "");
+                    var lastIndexOfBrace = message.lastIndexOf('[');
+
                     if (name !== "") { // fetching if name is not empty
-                        check.push(name);
-                        console.log("Name :" + name);
+                        hasResults = true;
+                        console.log("Name:", name);
                     }
-                    if (message.indexOf('[') == -1) { // fetching only the message and not both >.<'
-                        console.log("Message : " + message );
+                    if (lastIndexOfBrace === -1) { // fetching only the message and not both >.<'
+                        console.log("Message:", message);
+                    } else {
+                        console.log('Nickname:',
+                            message.substr(0, lastIndexOfBrace));
                     }
                 }
-                if (classN == "minutes") { // We'll get the xat URL on this class.
-                    var xats = $('a', this).text();
-                    console.log("Xat: " + xats + "\n");
+                if (classN === "minutes") { // We'll get the xat URL on this class.
+                    var content = $(this).text().split('on');
+                    var time = content[0];
+                    var xats = content[1].trim();
+
+                    console.log("Xat:", xats);
+                    console.log("Time:", time);
+
+                    console.log();
                 }
             });
-            if (check.length == 0) {
+            if (!hasResults) {
                 console.log("No results found c:");
             }
         }
