@@ -2,6 +2,8 @@ var request     = require('request');
 var cheerio     = require('cheerio');
 var hasResults = false;
 
+var keyword = process.argv[2] || "sloom";
+
 function init(search) {
     console.log("Please wait until we have fetched everything...");
     request({
@@ -49,4 +51,4 @@ function init(search) {
     });
 };
 
-init('sloom');
+init(keyword);
